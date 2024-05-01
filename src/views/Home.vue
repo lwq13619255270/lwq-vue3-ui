@@ -3,7 +3,8 @@
         <div class="top-nav">
             <div class="log">LOGO</div>
             <ul class="menu">
-                <li></li>
+                <li>菜单1</li>
+                <li>菜单2</li>
             </ul>
         </div>
         <div class="banner">
@@ -17,7 +18,21 @@
     </div>
 </template>
 <style lang="scss" scoped>
-    .top-nav {
-        border: 1px solid red
+.top-nav {
+  background: pink;
+  display: flex;
+  padding: 16px;
+  > .logo {
+    max-width: 6em;
+    margin-right: auto;
+  }
+  > .menu {
+    display: flex;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    > li {
+      margin: 0 1em;
     }
+  }
+}
 </style>
