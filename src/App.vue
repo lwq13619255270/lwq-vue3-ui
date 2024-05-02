@@ -12,7 +12,9 @@ export default {
     const asideVisible = ref(width <= 500 ? false : true);
     provide('asideVisible', asideVisible);
     router.afterEach((to, from) => {
-      asideVisible.value = false;
+      if (width <= 500) {
+        asideVisible.value = false;
+      }
     })
   }
 }
