@@ -34,7 +34,7 @@ export default {
   left: 0;
   width: 100%;
   z-index: 10 ;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   > .logo {
     max-width: 6em;
@@ -59,6 +59,7 @@ export default {
     transform: translateY(-50%);
   }
   @media(max-width: 500px) {
+    justify-content: center;
     > .menu {
       display: none;
     }

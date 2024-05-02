@@ -14,6 +14,8 @@ export default {
     router.afterEach((to, from) => {
       if (width <= 500) {
         asideVisible.value = false;
+      } else {
+        asideVisible.value = true;
       }
     })
   }
