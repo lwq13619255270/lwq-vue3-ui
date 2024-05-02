@@ -5,8 +5,8 @@
       <h1>又又UI</h1>
       <h2>一个基于vue3+vite+typescript开发的一个UI框架</h2>
       <p class="actions">
-        <a>GitHub</a>
-        <a>开始</a>
+        <a href="https://github.com/lwq13619255270/lwq-vue3-ui">GitHub</a>
+        <router-link to="/doc">开始</router-link>
       </p>
     </div>
   </div>
