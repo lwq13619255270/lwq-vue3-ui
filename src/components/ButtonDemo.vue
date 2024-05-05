@@ -11,10 +11,10 @@
      -->
     <h1>按钮的主题</h1>
     <div>
-      <Button>你好</Button>
-      <Button theme="button">你好</Button>
-      <Button theme="link">你好</Button>
-      <Button theme="text">你好</Button>
+      <Button>默认按钮</Button>
+      <Button theme="button">默认按钮</Button>
+      <Button theme="link">Link 按钮</Button>
+      <Button theme="text">文本按钮</Button>
     </div>
   </div>
 </template>
