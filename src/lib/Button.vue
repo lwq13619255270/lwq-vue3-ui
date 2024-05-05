@@ -1,5 +1,5 @@
 <template>
-  <button class="common-button" :class="`theme-${theme}`">
+  <button class="lwq-common-button" :class="`lwq-theme-${theme}`">
     <slot></slot>
   </button>
 </template>
@@ -14,13 +14,13 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 32px;
 $border-color: #d9d9d9;
 $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
-.common-button {
+.lwq-common-button {
     box-sizing: border-box;
     height: $h;
     padding: 0 12px;

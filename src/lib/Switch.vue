@@ -1,5 +1,5 @@
 <template>
-  <button :class="{ checked: value }" @click="toggle"><span></span></button>
+  <button class="lwq-switch" :class="{ 'lwq-checked': value }" @click="toggle"><span></span></button>
 </template>
 <script lang="ts">
 export default {
@@ -18,11 +18,11 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
 
-button {
+.lwq-switch {
   height: $h;
   width: $h * 2;
   border: none;
@@ -46,7 +46,7 @@ button {
     transition: left 250ms;
   }
 
-  &.checked {
+  &.lwq-checked {
     background: blue;
     & > span {
       left: calc(100% - #{$h2} - 2px);
@@ -57,7 +57,7 @@ button {
       width: $h2 + 4px;
     }
   }
-  &.checked:active {
+  &.lwq-checked:active {
     > span {
       width: $h2 + 4px;
       margin-left: -4px;
