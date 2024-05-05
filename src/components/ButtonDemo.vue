@@ -9,7 +9,13 @@
       5、可以禁用： disabled
       6、可以加载中： loading
      -->
-    <Button></Button>
+    <h1>按钮的主题</h1>
+    <div>
+      <Button>你好</Button>
+      <Button theme="button">你好</Button>
+      <Button theme="link">你好</Button>
+      <Button theme="text">你好</Button>
+    </div>
   </div>
 </template>
 <script lang="ts">
