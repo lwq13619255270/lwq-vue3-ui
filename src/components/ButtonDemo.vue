@@ -9,22 +9,39 @@
       5、可以禁用： disabled
       6、可以加载中： loading
      -->
-    <h1>按钮的主题</h1>
+    <h2>按钮的主题</h2>
     <div>
       <Button>默认按钮</Button>
       <Button theme="button">默认按钮</Button>
       <Button theme="link">Link 按钮</Button>
       <Button theme="text">文本按钮</Button>
     </div>
+    <h2>大小按钮</h2>
+    <div>
+      <Button>Normal Button</Button>
+      <Button size="normal">Normal Button</Button>
+      <Button size="big">Big Button</Button>
+      <Button size="small">Small Button</Button>
+    </div>
+    <div>
+      <Button size="big" theme="link">Big Button</Button>
+      <Button theme="link">Normal Button</Button>
+      <Button size="small" theme="link">Small Button</Button>
+    </div>
+    <div>
+      <Button size="big" theme="text">Big Button</Button>
+      <Button theme="text">Normal Button</Button>
+      <Button size="small" theme="text">Small Button</Button>
+    </div>
   </div>
 </template>
 <script lang="ts">
-import Button from '../lib/Button.vue';
+import Button from "../lib/Button.vue";
 
 export default {
-  name: 'ButtonDemo',
+  name: "ButtonDemo",
   components: {
-    Button
-  }
-}
+    Button,
+  },
+};
 </script>

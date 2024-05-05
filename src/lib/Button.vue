@@ -1,15 +1,33 @@
 <template>
-  <button class="lwq-common-button" :class="`lwq-theme-${theme}`">
+  <button class="lwq-common-button" :class="classes">
     <slot></slot>
   </button>
 </template>
 <script lang="ts">
+import { computed } from 'vue';
+
 export default {
   name: 'Button',
   props: {
     theme: {
       type: String,
       default: 'button'
+    },
+    size: {
+      type: String,
+      default: 'normal'
+    }
+  },
+  setup(props) {
+    const { theme, size } = props;
+    const classes = computed(() => {
+      return {
+        [`lwq-theme-${theme}`]: theme,
+        [`lwq-size-${size}`]: size
+      }
+    })
+    return  {
+      classes
     }
   }
 }
@@ -66,6 +84,16 @@ $radius: 4px;
         &:focus {
           background: darken(white, 5%);
         }
+    }
+    &.lwq-size-big {
+        font-size: 24px;
+        height: 48px;
+        padding: 0 16px;
+    }
+    &.lwq-size-small {
+        font-size: 12px;
+        height: 20px;
+        padding: 0 4px;
     }
 }
 </style>
