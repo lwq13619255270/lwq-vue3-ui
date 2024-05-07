@@ -59,16 +59,27 @@
   <h2>loading</h2>
   <div>
     <Button loading>Loading</Button>
-    <Button>Done</Button>
+    <Button @click="onClick" :loading="isLoading ? true : false">Done</Button>
 </div>
 </template>
 <script lang="ts">
+import { ref } from "vue";
 import Button from "../lib/Button.vue";
 
 export default {
   name: "ButtonDemo",
   components: {
     Button,
+  },
+  setup(props, ctx) {
+    let isLoading = ref<Boolean>(false);
+    const onClick = () => {
+      isLoading.value = !isLoading.value;
+    }
+    return {
+      isLoading,
+      onClick
+    }
   },
 };
 </script>
