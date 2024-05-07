@@ -1,6 +1,7 @@
 <template>
-  <button class="lwq-common-button" :class="classes">
-    <slot></slot>
+    <button class="lwq-common-button" :class="classes" :disabled="disabled">
+      <span v-if="loading" class="lwq-loadingIndicator"></span>
+      <slot></slot>
   </button>
 </template>
 <script lang="ts">
@@ -21,6 +22,14 @@ export default {
       type: String,
       default: "normal",
     },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    loading: {
+      type: Boolean,
+      default: false
+    }
   },
   setup(props) {
     const { theme, size, level } = props;
@@ -44,6 +53,7 @@ $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
 $red: #ff4848;
+$grey: #a3a3a3;
 .lwq-common-button {
     box-sizing: border-box;
     height: $h;
@@ -148,5 +158,42 @@ $red: #ff4848;
         }
       }
     }
+    &.lwq-theme-button {
+      &[disabled] {
+        cursor: not-allowed;
+        color: $grey;
+        background: #dbdbdb;
+        &:hover {
+            border-color: $grey;
+        }
+      }
+    }
+    &.lwq-theme-link,
+    &.lwq-theme-text {
+      &[disabled] {
+          cursor: not-allowed;
+          color: $grey;
+      }
+    }
+    >.lwq-loadingIndicator {
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        margin-right: 4px;
+        border-radius: 8px;
+        border-color: $blue $blue $blue transparent;
+        border-style: solid;
+        border-width: 2px;
+        animation: crisps-spin 1s infinite linear;
+    }
+}
+@keyframes crisps-spin {
+  0% {
+      transform: rotate(0deg)
+  }
+
+  100% {
+      transform: rotate(360deg)
+  }
 }
 </style>
