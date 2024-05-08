@@ -1,17 +1,22 @@
 <template>
-  <div class="lwq-dialog-overlay"></div>
-  <div class="lwq-dialog-wrapper">
-    <div class="lwq-dialog">
-      <header>标题</header>
-      <main>
-        <p>内容</p>
-      </main>
-      <footer>
-        <Button level="main">OK</Button>
-        <Button>Cancel</Button>
-      </footer>
+  <template v-if="visible">
+    <div class="lwq-dialog-overlay"></div>
+    <div class="lwq-dialog-wrapper">
+      <div class="lwq-dialog">
+        <header>
+          <span>标题</span>
+          <span class="lwq-dialog-close"></span>
+        </header>
+        <main>
+          <p>内容</p>
+        </main>
+        <footer>
+          <Button level="main">OK</Button>
+          <Button>Cancel</Button>
+        </footer>
+      </div>
     </div>
-  </div>
+  </template>
 </template>
 <script lang="ts">
 import Button from "./Button.vue";
@@ -21,6 +26,12 @@ export default {
   components: {
     Button,
   },
+  props: {
+    visible: {
+      type: Boolean,
+      default: false
+    }
+  }
 };
 </script>
 <style lang="scss">
