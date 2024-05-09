@@ -1,22 +1,22 @@
 <template>
-  <template v-if="visible">
-    <div class="lwq-dialog-overlay"></div>
+  <div v-if="visible">
+    <div class="lwq-dialog-overlay" @click="onClickMask"></div>
     <div class="lwq-dialog-wrapper">
       <div class="lwq-dialog">
         <header>
           <span>标题</span>
-          <span class="lwq-dialog-close"></span>
+          <span @click="close" class="lwq-dialog-close"></span>
         </header>
         <main>
           <p>内容</p>
         </main>
         <footer>
-          <Button level="main">OK</Button>
-          <Button>Cancel</Button>
+          <Button level="main" @click="ok">OK</Button>
+          <Button @click="cancel">Cancel</Button>
         </footer>
       </div>
     </div>
-  </template>
+  </div>
 </template>
 <script lang="ts">
 import Button from "./Button.vue";
@@ -30,6 +30,43 @@ export default {
     visible: {
       type: Boolean,
       default: false
+    },
+    maskClosable: {
+      type: Boolean,
+      default: true
+    },
+    ok: {
+      type: Function,
+    },
+    cancel: {
+      type: Function
+    }
+  },
+  setup(props, context) {
+    console.log(props.visible)
+    const close = () => {
+      context.emit('update:visible', false)
+    }
+    const onClickMask = () => {
+      if (props.maskClosable) {
+        close();
+      }
+    }
+    const ok = () => {
+      if(props.ok?.() !== false) {
+        close();
+      }
+    }
+    const cancel = () => {
+      if (props.cancel?.() !== false) {
+        close();
+      }
+    }
+    return {
+      ok,
+      cancel,
+      close,
+      onClickMask
     }
   }
 };

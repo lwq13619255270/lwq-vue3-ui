@@ -11,7 +11,7 @@
      -->
      <h1>示例1</h1>
      <Button @click="toggle">toggle</Button>
-     <Dialog :visible="visible"></Dialog>
+     <Dialog v-model:visible="visible" :ok="ok"></Dialog>
   </div>
 </template>
 <script lang="ts">
@@ -28,11 +28,15 @@ export default {
   setup() {
     const visible = ref(false);
     const toggle = () => {
-      visible.value = !visible.value
+      visible.value = !visible.value;
+    }
+    const ok = () => {
+      return false
     }
     return  {
       visible,
-      toggle
+      toggle,
+      ok
     }
   }
 }
