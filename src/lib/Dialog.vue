@@ -1,24 +1,26 @@
 <template>
-  <div v-if="visible">
-    <div class="lwq-dialog-overlay" @click="onClickMask"></div>
-    <div class="lwq-dialog-wrapper">
-      <div class="lwq-dialog">
-        <header>
-          <span>
-            <slot name="title"></slot>
-          </span>
-          <span @click="close" class="lwq-dialog-close"></span>
-        </header>
-        <main>
-          <slot name="content"></slot>
-        </main>
-        <footer>
-          <Button level="main" @click="ok">OK</Button>
-          <Button @click="cancel">Cancel</Button>
-        </footer>
+  <template v-if="visible">
+    <Teleport to="body">
+      <div class="lwq-dialog-overlay" @click="onClickMask"></div>
+      <div class="lwq-dialog-wrapper">
+        <div class="lwq-dialog">
+          <header>
+            <span>
+              <slot name="title"></slot>
+            </span>
+            <span @click="close" class="lwq-dialog-close"></span>
+          </header>
+          <main>
+            <slot name="content"></slot>
+          </main>
+          <footer>
+            <Button level="main" @click="ok">OK</Button>
+            <Button @click="cancel">Cancel</Button>
+          </footer>
+        </div>
       </div>
-    </div>
-  </div>
+    </Teleport>
+  </template>
 </template>
 <script lang="ts">
 import Button from "./Button.vue";
