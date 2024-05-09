@@ -4,11 +4,13 @@
     <div class="lwq-dialog-wrapper">
       <div class="lwq-dialog">
         <header>
-          <span>标题</span>
+          <span>
+            <slot name="title"></slot>
+          </span>
           <span @click="close" class="lwq-dialog-close"></span>
         </header>
         <main>
-          <p>内容</p>
+          <slot name="content"></slot>
         </main>
         <footer>
           <Button level="main" @click="ok">OK</Button>

@@ -11,7 +11,15 @@
      -->
      <h1>示例1</h1>
      <Button @click="toggle">toggle</Button>
-     <Dialog v-model:visible="visible" :ok="ok"></Dialog>
+     <Dialog v-model:visible="visible" :ok="ok">
+        <template v-slot:title>
+          <h1>标题</h1>
+        </template>
+        <template v-slot:content>
+          <div>文本1</div>
+          <div>文本2</div>
+        </template>
+    </Dialog>
   </div>
 </template>
 <script lang="ts">
