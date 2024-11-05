@@ -1,6 +1,6 @@
 <template>
   <div class="lwq-tabs">
-    <div class="lwq-tabs-nav">
+    <div class="lwq-tabs-nav" ref="container" >
       <div
         class="lwq-tabs-nav-item"
         :class="{ selected: t === value }"
@@ -10,7 +10,7 @@
       >
         {{ t }}
       </div>
-      <div class="lwq-tabs-nav-indicator"></div>
+      <div class="lwq-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="lwq-tabs-content">
       <component
@@ -22,7 +22,7 @@
   </div>
 </template>
 <script lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import Tab from "./Tab.vue";
 
 export default {
@@ -32,7 +32,9 @@ export default {
     },
   },
   setup(props, ctx) {
-    console.log(ctx);
+    const navItems = ref < HTMLDivElement[] > ([]);
+    const indicator = ref < HTMLDivElement > (null);
+    const container = ref < HTMLDivElement > (null);
     const defaults = ctx.slots.default?.();
     defaults?.forEach((tab) => {
       if (tab.type !== Tab) {
